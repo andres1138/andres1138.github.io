@@ -1,46 +1,46 @@
 * {
     box-sizing: border-box;
 }
-  
+
   html {
-    background-color:  darkslategray;
+    background-color:  "#293036";
     display: flex;
   }
-  
+
   body {
     max-width: 400px;
-   
+
     margin: 0% auto;
   }
   body .wrapper {
     text-align: center;
   }
-  
+
 
   #gcat {
     padding: 0px;
     margin: 0;
     transform: scale(0.8);
   }
-  
-  
+
+
   /*# sourceMappingURL=styles.css.map */
   #colorcat {
     animation: appearAnimation 3s;
-    animation-iteration-count: 1; 
+    animation-iteration-count: 1;
   }
-  
+
   #catline {
     stroke-dasharray: 11915;
     stroke-dashoffset: 11915;
     animation: dash 3s linear forwards;
-    animation-iteration-count: 1; 
+    animation-iteration-count: 1;
   }
 
 
   .catlinep {
     animation: turnToGold 3s linear forwards;
-    animation-iteration-count: 1; 
+    animation-iteration-count: 1;
   }
 
   /*
@@ -56,10 +56,10 @@
   stroke: #fff;
   }
   to {
-   stroke: #FFEC00; 
+   stroke: #FFEC00;
   }
 }
- 
+
 @keyframes appearAnimation {
     from {
       opacity: 0;
@@ -69,7 +69,7 @@
       visibility: visible;
     }
   }
-  
+
   @keyframes dash {
     from {
       stroke-dashoffset: 11915;
