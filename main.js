@@ -20,6 +20,7 @@ var wave = {
 
 blinkingAnimation();
 waveArmAnimation();
+tailArmAnimation();
 
 
 function blinkingAnimation() {
@@ -84,82 +85,35 @@ function waveArmAnimation() {
 }
 
 
-for (var i = 0; i < numPoints; i++) {
 
-    // var ratio = i / (numPoints - 1);
-    var ratio = Power1.easeInOut.getRatio(i / (numPoints - 1));
 
-    points.push({
-        x: 0,
-        y: 0,
-        ratio: ratio,
-        startX: startX + i * segmentSize,
-        startY: startY
-    });
+function tailArmAnimation() {
+
+    gsap.fromTo(".tail", {
+        rotation: 0,
+        duration: 0.5,
+        delay: Math.random() + 0.3,
+    
+        transformOrigin: "bottom  50%",
+        ease:  "power2.easeIn",
+        yoyo: true,
+        //immediateRender: false,
+        
+        },
+        {
+            rotation:  getRandomInt(-15),
+            duration: 0.5,
+            repeat: -1,
+            repeatDelay: Math.random() + 0.6,
+           // transformOrigin: "bottom left 50%",
+            ease:  "power2.easeIn",
+            yoyo: true,
+         //   immediateRender: false,
+            //delay: 2.2
+        
+        });
 }
 
-var tl =  gsap.timeline({
-    onUpdate: update,
-    repeat: -1,
-    yoyo: true,
-})
-gsap.to(wave, 3, {
-        speed: 0.2,
-        xOffset: 3,
-        yOffset: 10,
-        ease: "Sine.easeInOut"
-    }, 2)
-    .set({}, {}, "+=2");
-
-function update() {
-
-    count -= wave.speed;
-
-    for (var i = 0; i < numPoints; i++) {
-
-        var p = points[i];
-
-        p.x = p.startX + Math.cos((i * wave.xPhase) + count) * wave.xOffset * p.ratio;
-        p.y = p.startY + Math.sin((i * wave.yPhase) + count) * wave.yOffset * p.ratio;
-    }
-
-    tail.setAttribute("d", cardinalSpline(points));
-}
-
-function cardinalSpline(data, closed, tension) {
-
-    if (data.length < 1) return "M0 0";
-    if (tension == null) tension = 1;
-
-    var size = data.length - (closed ? 0 : 1);
-    var path = "M" + data[0].x + " " + data[0].y + " C";
-
-    for (var i = 0; i < size; i++) {
-
-        var p0, p1, p2, p3;
-
-        if (closed) {
-            p0 = data[(i - 1 + size) % size];
-            p1 = data[i];
-            p2 = data[(i + 1) % size];
-            p3 = data[(i + 2) % size];
-
-        } else {
-            p0 = i == 0 ? data[0] : data[i - 1];
-            p1 = data[i];
-            p2 = data[i + 1];
-            p3 = i == size - 1 ? p2 : data[i + 2];
-        }
-
-        var x1 = p1.x + (p2.x - p0.x) / 6 * tension;
-        var y1 = p1.y + (p2.y - p0.y) / 6 * tension;
-
-        var x2 = p2.x - (p3.x - p1.x) / 6 * tension;
-        var y2 = p2.y - (p3.y - p1.y) / 6 * tension;
-
-        path += " " + x1 + " " + y1 + " " + x2 + " " + y2 + " " + p2.x + " " + p2.y;
-    }
-
-    return closed ? path + "z" : path;
-}
-
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
