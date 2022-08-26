@@ -73,7 +73,7 @@ function waveArmAnimation() {
         },
         {
             rotation: -10,
-            duration: 1,
+            duration: 0.8,
             repeat: -1,
            // transformOrigin: "bottom left 50%",
             ease: Linear.easeNone,
