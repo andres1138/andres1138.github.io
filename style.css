@@ -6,16 +6,38 @@ background:  darkslategray;
 }
 
 .container {
-  max-width:  400px;
+  max-width:  800px;
   margin: 10% auto;
-  padding: 15px;
+  padding-top: 100px;
 
-  /* display: block; */
+
 }
 
 
 
-svg {
-  width: 100%;
+/* svg {
+  max-width: 100%;
 
+} */
+
+
+
+@media (max-width: 600px) {
+  [class=container] {
+    max-width:  400px;
+    margin: 10% auto;
+    padding-top: 100px;
+  
+    /* display: block; */
+  } 
+}
+
+
+@media (max-width: 400px) {
+  [class=container] {
+    max-width:  100px;
+    margin: 10% auto;
+    padding-top: 100px;
+    /* display: block; */
+  } 
 }
