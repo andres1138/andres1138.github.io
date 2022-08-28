@@ -1,16 +1,17 @@
 body {
   display: grid;
 place-content: center;
-align-items: center;
+
 background:  darkslategray;
 }
 
 .container {
   max-width:  500px;
-  margin: 10% auto;
-  padding-top: 100px;
+ 
+  padding-top: 30%;
+  margin: 10%  auto;
 
-display: block;
+
 }
 
 
@@ -23,8 +24,11 @@ svg {
 
 
 @media (max-width: 200px) {
+
+  
   svg {
     width:  50%;
+  
   } 
 }
 

@@ -94,14 +94,14 @@ function tailArmAnimation() {
         duration: 0.5,
         delay: Math.random() + 0.3,
     
-        transformOrigin: "bottom  50%",
+        transformOrigin: "bottom   75%",
         ease:  "power2.easeIn",
         yoyo: true,
         //immediateRender: false,
         
         },
         {
-            rotation:  getRandomInt(-15),
+            rotation:  getRandomInt(-8),
             duration: 0.5,
             repeat: -1,
             repeatDelay: Math.random() + 0.6,
